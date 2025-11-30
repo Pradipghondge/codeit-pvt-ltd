@@ -39,8 +39,8 @@ const Address = () => {
               Contact Information
             </h3>
             <div className="text-gray-600">
-              <p>080 – 49524573</p>
-              <p>sales@codeit.com</p>
+              <p>+91-7231925496</p>
+              <p>careers@codeitsoftwaretraining.com</p>
             </div>
           </div>
         </div>

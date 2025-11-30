@@ -7,30 +7,31 @@ import { ArrowRight } from 'lucide-react';
 
 const testimonialData = [
   {
-    title: 'Services Provided',
+    title: 'Trusted Delivery Excellence',
     description:
-      'We offer a comprehensive suite of services including SAP for cloud, analytics, integration, reporting, modules, and management, alongside infra and BPO capabilities, information design and development, cloud infrastructure, Oracle Apps, and data center capabilities.',
+      'We combine strong technical capabilities with proven execution discipline. From strategy to deployment, we ensure reliable outcomes, transparent visibility, and faster time-to-value for every project.',
     image: '/images/your-image-1.jpg',
-    ctaText: 'Learn more',
-    ctaLink: '/services',
+    ctaText: 'Our Approach',
+    ctaLink: '/why-us',
   },
   {
-    title: 'Industry Verticals',
+    title: 'Industry-Led Expertise',
     description:
-      'In the ever-evolving sectors of IT, BFSI, Healthcare, Oil and Gas, Manufacturing, and Telecom, our profound expertise enables us to tackle diverse challenges, driving impactful outcomes for our clients.',
+      'We support digital transformation across key industries including IT, BFSI, Healthcare, Oil & Gas, Manufacturing, and Telecom — solving real challenges with domain-focused solutions.',
     image: '/images/your-image-2.jpg',
-    ctaText: 'Learn more',
+    ctaText: 'Industries',
     ctaLink: '/industries',
   },
   {
-    title: 'Innovation',
+    title: 'Scalable Growth Partner',
     description:
-      'In the dynamic landscape of industry evolution, our consulting team champions innovation and creativity, delivering visionary solutions ahead of trends.',
+      'Whether you’re expanding teams, upgrading systems, or modernizing operations, we provide scalable solutions that grow with your business without disruption — ensuring long-term success and flexibility.',
     image: '/images/your-image-3.jpg',
-    ctaText: 'Learn more',
-    ctaLink: '/innovation',
+    ctaText: 'Scale with Us',
+    ctaLink: '/growth',
   },
 ];
+
 
 const Testimonials = () => {
   const sectionVariants: Variants = {

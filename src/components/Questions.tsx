@@ -6,26 +6,32 @@ import { ChevronDown } from 'lucide-react';
 
 const faqData = [
   {
-    question: 'How can Code It help my business stay competitive in the digital age?',
+    question: 'How can Code IT support my business with skilled IT resources?',
     answer:
-      'In today’s fast-paced digital landscape, staying competitive requires leveraging advanced technologies and strategies. Code It empowers your business with cutting-edge digital solutions, enabling you to streamline operations, enhance customer experiences, and drive growth through innovation.',
+      'We provide trained and experienced IT professionals through outsourcing, staff augmentation, and dedicated teams. This helps your business scale faster, reduce hiring efforts, and maintain continuous productivity.',
   },
   {
-    question: 'Is Code It experienced in handling projects of varying sizes and complexities?',
+    question: 'Do you offer 24/7 application support services?',
     answer:
-      "Absolutely. Our team comprises seasoned professionals with extensive experience in managing projects of all sizes and complexities. Whether you're a startup or a large enterprise, we have the expertise and resources to deliver tailored solutions that meet your specific requirements and goals.",
+      'Yes, Code IT offers round-the-clock L1, L2, and L3 support, including monitoring, incident handling, bug fixing, patch updates, and performance optimization — ensuring your applications run smoothly and securely.',
   },
   {
-    question: 'How does Code It ensure data security and privacy for its clients?',
+    question: 'How does Code IT handle recruitment and staffing for companies?',
     answer:
-      'Data security and privacy are paramount concerns for us at Code It. We employ robust cybersecurity measures and adhere to industry best practices to safeguard your sensitive information against cyber threats and breaches. Our team is dedicated to maintaining the confidentiality and integrity of your data at every stage of our engagement.',
+      'We offer end-to-end recruitment for IT & Non-IT roles including sourcing, technical screening, shortlisting, and onboarding support. As an official hiring partner for multiple companies, we ensure fast hiring and a high joining ratio.',
   },
   {
-    question: 'Can Code It assist with ongoing support and maintenance post-project implementation?',
+    question: 'Do you provide training programs for students and professionals?',
     answer:
-      'Yes, we offer comprehensive support and maintenance services to ensure the smooth functioning of your digital solutions post-implementation. Our dedicated support team is available to address any issues, provide timely updates, and optimize your systems for maximum efficiency and performance.',
+      'Yes, through our CODEIT Software Training Institute, we offer practical IT courses like Java, Python, Full Stack Development, Software Testing, Data Analytics, and more — with 100% placement support.',
+  },
+  {
+    question: 'Can Code IT customize services based on our business needs?',
+    answer:
+      'Absolutely. We design flexible and scalable engagement models — whether you need outsourced teams, long-term staffing support, or customized application support services tailored to your goals.',
   },
 ];
+
 
 const AccordionItem = ({
   item,

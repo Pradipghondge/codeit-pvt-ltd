@@ -8,7 +8,7 @@ const Footer = () => {
         {/* Section 1: Newsletter Signup */}
         <div className="mb-12">
           <h2 className="mb-6 text-3xl font-bold text-gray-800 md:text-4xl lg:text-4xl">
-            Subscribe to our newsletter for industry insights and corporate news!
+            Get tech and hiring updates from Code IT!
           </h2>
           <form className="flex flex-col space-y-4 sm:flex-row sm:space-y-0 sm:space-x-4">
             <input
@@ -31,8 +31,7 @@ const Footer = () => {
           <div className="md:col-span-1">
             <h3 className="text-2xl font-bold text-[#0F4F3F]">CODE IT</h3>
             <p className="mt-4 max-w-xs text-gray-600">
-              Leading technological solutions provider, revamp enterprises with Code It’s
-              world-class services.
+              Transforming businesses with reliable outsourcing, application support, and smart recruitment solutions.
             </p>
           </div>
 

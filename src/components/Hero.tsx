@@ -18,32 +18,32 @@ const SCENES: Scene[] = [
   {
     id: 's1',
     image: '/images/hero-img-1.png',
-    title: 'Customer Support',
-    lineA: 'We deliver friendly, responsive support whenever you need it.Our team ensures your issues are resolved quickly and effectively.',
+    title: 'IT Outsourcing',
+    lineA: 'Scale your business with cost-effective, high-quality execution through dedicated development teams and end-to-end project delivery.',
   },
   {
     id: 's2',
     image: '/images/hero-img-2.png',
-    title: 'Exceptional Service',
-    lineA: 'Experience high-quality service built around speed and accuracy.We help your business operate smoothly with reliable solutions.',
+    title: 'Application Support',
+    lineA: 'Ensure smooth application performance every hour, every day with 24/7 monitoring, rapid incident resolution, root-cause analysis, and preventive optimization.',
   },
   {
     id: 's3',
     image: '/images/hero-img-3.png',
-    title: 'Tech Solutions',
-    lineA: 'Advanced technology solutions designed for modern businesses.We optimize your systems to improve performance and efficiency.',
+    title: 'Recruitment Services',
+    lineA: 'Hire the right talent faster and smarter with specialized sourcing, technical screening, bulk and niche hiring, and seamless onboarding coordination.',
   },
   {
     id: 's4',
     image: '/images/hero-img-4.png',
-    title: 'System Repair',
-    lineA: 'Fast and dependable repair for all your system issues.We diagnose and fix problems to restore smooth operation.',
+    title: 'Why Choose Code IT Pvt. Ltd.?',
+    lineA: 'Delivering professional expertise and industry experience with high response efficiency, strict SLAs, transparent communication, quality delivery, and measurable, client-centric outcomes.',
   },
   {
     id: 's5',
     image: '/images/hero-img-5.png',
-    title: 'Secure Network',
-    lineA: 'Protect your business with strong, modern security measures.We safeguard your data and keep your network fully secured.',
+    title: 'Professional expertise & industry experience',
+    lineA: 'Professional expertise and industry experience with scalable teams and continuous improvement using modern tools and best practices.',
   },
 ];
 

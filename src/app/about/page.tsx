@@ -2,19 +2,9 @@ import Image from 'next/image';
 
 const teamMembers = [
   {
-    name: 'Michael Foster',
-    role: 'Co-Founder / CEO',
-    imageUrl: '/images/team/member1.jpg',
-  },
-  {
-    name: 'Dries Vincent',
-    role: 'Co-Founder / CTO',
-    imageUrl: '/images/team/member2.jpg',
-  },
-  {
-    name: 'Lindsay Walton',
-    role: 'Front-end Developer',
-    imageUrl: '/images/team/member3.jpg',
+    name: 'Preeti Kalra',
+    role: 'Founder / CTO',
+    imageUrl: '/images/member1.jpg',
   },
 ];
 
@@ -45,7 +35,7 @@ const delightCards = [
     ),
     title: 'Customer Delight',
     description:
-      'We are a customer-centric organization. We believe in going above and beyond to ensure our customers are happy.',
+      'We are committed to delivering high-quality outsourcing, support, and recruitment solutions that ensure operational excellence and complete client satisfaction.',
   },
   {
     icon: (
@@ -66,7 +56,7 @@ const delightCards = [
     ),
     title: 'Society Delight',
     description:
-      'We believe in giving back to society. We are committed to making a positive impact on the world.',
+      'Through training, upskilling, and career opportunities, we help build a stronger workforce and make a positive contribution to the community.',
   },
   {
     icon: (
@@ -87,7 +77,7 @@ const delightCards = [
     ),
     title: 'Employee Delight',
     description:
-      'We believe that happy employees make happy customers. We strive to create a work environment that is fun, challenging, and rewarding.',
+      'We believe in empowering our team with continuous learning, a collaborative culture, and rewarding career growth opportunities.',
   },
 ];
 
@@ -99,11 +89,12 @@ export default function AboutUsPage() {
           {/* Team Section */}
           <div className="mx-auto max-w-2xl text-center">
             <h1 className="text-4xl font-bold tracking-tight text-[#0F4F3F] sm:text-5xl">
-              Meet the Kudzu Team
+                About Code IT Pvt. Ltd.
             </h1>
             <p className="mt-6 text-lg leading-8 text-gray-600">
-              We’re a dynamic group of individuals who are passionate about what we do and
-              dedicated to delivering the best results for our clients.
+               We are a technology and talent solutions company delivering IT outsourcing,
+              application support, recruitment services, and professional training 
+              to help businesses scale and careers grow.
             </p>
           </div>
           <div className="mx-auto mt-16 max-w-3xl">
@@ -138,15 +129,13 @@ export default function AboutUsPage() {
             <div className="rounded-2xl border border-gray-200 p-8">
               <h2 className="text-2xl font-bold text-[#0F4F3F]">Our Mission</h2>
               <p className="mt-4 text-gray-600">
-                To be the most creative, effective and honest company in the business. We are
-                committed to providing our clients with the highest quality work.
+                To be the most creative, effective and honest company in the business. We are committed to providing our clients with the highest quality work.
               </p>
             </div>
             <div className="rounded-2xl border border-gray-200 p-8">
               <h2 className="text-2xl font-bold text-[#0F4F3F]">Our Guarantees</h2>
               <p className="mt-4 text-gray-600">
-                We guarantee that you will be 100% satisfied with our work. If you are not, we will
-                do everything in our power to make it right.
+               We guarantee reliable service delivery, transparent communication, and measurable results. If anything falls short, our team will take immediate action to resolve it and ensure complete satisfaction.
               </p>
             </div>
           </div>
@@ -154,7 +143,7 @@ export default function AboutUsPage() {
           {/* Vision Section */}
           <div className="mx-auto mt-24 max-w-4xl text-center">
             <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
-              Our vision is to cater to the Big Three — Our Team, Customers and Society.
+              We Create Growth for Our Clients, Workforce & Community
             </h2>
           </div>
 
@@ -179,11 +168,10 @@ export default function AboutUsPage() {
             <div className="grid grid-cols-1 items-center gap-y-16 lg:grid-cols-2 lg:gap-x-16">
               <div>
                 <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
-                  Our numbers speak for themselves
+                  Our numbers reflect our journey of trust and transformation
                 </h2>
                 <p className="mt-4 text-lg leading-8 text-gray-600">
-                  We’ve achieved significant milestones, reflecting our commitment to growth,
-                  client satisfaction, and team expansion.
+                  We continue to grow by delivering quality services, empowering careers, and building long-term business partnerships.
                 </p>
               </div>
               <div className="grid grid-cols-2 gap-x-8 gap-y-10">
