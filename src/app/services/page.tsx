@@ -3,10 +3,10 @@
 import { CheckCircle, Users, Headset, Briefcase, GraduationCap } from "lucide-react";
 import Link from "next/link";
 import { ReactNode } from "react";
-import { motion } from "framer-motion";
+import { motion, Variants } from "framer-motion";
 
 // --- Animation Variants ---
-const containerVariants = {
+const containerVariants: Variants = {
   hidden: { opacity: 0 },
   visible: {
     opacity: 1,
@@ -16,7 +16,7 @@ const containerVariants = {
   },
 };
 
-const itemVariants = {
+const itemVariants: Variants = {
   hidden: { y: 20, opacity: 0 },
   visible: {
     y: 0,
@@ -28,24 +28,23 @@ const itemVariants = {
   },
 };
 
-const iconCardVariants = {
+const iconCardVariants: Variants = {
   hover: {
     scale: 1.03,
     boxShadow: "0 10px 15px -3px rgba(15, 79, 63, 0.1), 0 4px 6px -2px rgba(15, 79, 63, 0.05)",
   },
 };
 
-// 🟢 Required type fix for children
+// Type for children props
 interface ServiceBlockProps {
   children: ReactNode[];
   reverse?: boolean;
 }
 
 export default function ServicesPage() {
-  const PRIMARY_COLOR = "#0F4F3F"; // Dark Green
-  const SECONDARY_BG = "#F7F8FA"; // Light Gray Background
+  const PRIMARY_COLOR = "#0F4F3F";
+  const SECONDARY_BG = "#F7F8FA";
 
-  // --- Utility Component for Service Blocks ---
   const ServiceBlock = ({ children, reverse = false }: ServiceBlockProps) => (
     <motion.div
       className="grid grid-cols-1 lg:grid-cols-2 gap-12 sm:gap-16 items-center"
@@ -56,9 +55,7 @@ export default function ServicesPage() {
     >
       {reverse ? (
         <>
-          <div className="flex justify-center order-last lg:order-first">
-            {children[0]}
-          </div>
+          <div className="flex justify-center order-last lg:order-first">{children[0]}</div>
           <div>{children[1]}</div>
         </>
       ) : (
@@ -72,20 +69,25 @@ export default function ServicesPage() {
 
   return (
     <div className="bg-white min-h-screen">
+
       {/* HERO SECTION */}
       <motion.section
-        className={`py-20 sm:py-28 ${SECONDARY_BG}`}
+        className="py-20 sm:py-28"
+        style={{ backgroundColor: SECONDARY_BG }}
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
       >
         <div className="max-w-7xl mx-auto px-6 text-center">
-          <h1 className={`text-4xl sm:text-5xl lg:text-6xl font-extrabold text-[${PRIMARY_COLOR}]`}>
-            <span className="block animate-fade-in">Our Professional Services</span>
+          <h1
+            className="text-4xl sm:text-5xl lg:text-6xl font-extrabold"
+            style={{ color: PRIMARY_COLOR }}
+          >
+            Our Professional Services
           </h1>
           <p className="mt-6 text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
             Code IT Pvt. Ltd. delivers professional IT outsourcing, reliable application support,
-            and result-driven recruitment solutions to help businesses scale efficiently and operate seamlessly.
+            and result-driven recruitment solutions to help businesses scale efficiently.
           </p>
         </div>
       </motion.section>
@@ -94,190 +96,129 @@ export default function ServicesPage() {
       <section className="py-20 sm:py-24">
         <div className="max-w-7xl mx-auto px-6 space-y-24 sm:space-y-32">
 
-          {/* 1. IT OUTSOURCING SECTION */}
+          {/* SERVICE 1 */}
           <ServiceBlock>
             <motion.div
-              className={`p-10 rounded-2xl bg-[${SECONDARY_BG}] shadow-xl hover:shadow-2xl transition-shadow w-full max-w-md text-center border-b-4 border-[${PRIMARY_COLOR}]`}
+              className="p-10 rounded-2xl shadow-xl hover:shadow-2xl transition-shadow w-full max-w-md text-center border-b-4"
+              style={{ backgroundColor: SECONDARY_BG, borderColor: PRIMARY_COLOR }}
               variants={iconCardVariants}
               whileHover="hover"
             >
-              <Users className={`w-16 h-16 text-[${PRIMARY_COLOR}] mx-auto`} />
-              <h3 className={`mt-6 text-2xl font-bold text-[${PRIMARY_COLOR}]`}>
+              <Users className="w-16 h-16 mx-auto" style={{ color: PRIMARY_COLOR }} />
+              <h3 className="mt-6 text-2xl font-bold" style={{ color: PRIMARY_COLOR }}>
                 Scalable IT Outsourcing
               </h3>
               <p className="mt-4 text-gray-600">
-                Deploy skilled resources quickly and efficiently with flexible hiring models tailored to your business needs.
+                Deploy skilled resources quickly and efficiently tailored to your business needs.
               </p>
-              <Link href="#contact" className={`mt-4 inline-block text-[${PRIMARY_COLOR}] font-semibold hover:underline`}>
+              <Link href="#contact" className="mt-4 inline-block font-semibold hover:underline" style={{ color: PRIMARY_COLOR }}>
                 Start Outsourcing →
               </Link>
             </motion.div>
 
             <motion.div className="space-y-6" variants={itemVariants}>
-              <h2 className={`text-3xl sm:text-4xl font-bold text-[${PRIMARY_COLOR}]`}>
+              <h2 className="text-3xl sm:text-4xl font-bold" style={{ color: PRIMARY_COLOR }}>
                 IT Outsourcing Solutions
               </h2>
-              <p className="text-gray-600 leading-relaxed text-lg">
-                We provide **skilled, trained, and dependable professionals** to support development,
-                operations, analytics, cloud, testing, and more—helping companies reduce operational burden
-                and accelerate project delivery with **SLA-driven execution**.
+              <p className="text-gray-600 text-lg">
+                Skilled and dependable professionals supporting cloud, DevOps, testing & more.
               </p>
-
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                <div>
-                  <h3 className={`mt-8 text-xl font-semibold text-[${PRIMARY_COLOR}]`}>
-                    Our Expertise
-                  </h3>
-                  <ul className="mt-4 space-y-3 text-gray-600">
-                    <li className="flex items-center gap-2"><CheckCircle className={`text-[${PRIMARY_COLOR}] w-5 h-5`} /> **Dedicated Technical Teams**</li>
-                    <li className="flex items-center gap-2"><CheckCircle className={`text-[${PRIMARY_COLOR}] w-5 h-5`} /> **Staff Augmentation**</li>
-                    <li className="flex items-center gap-2"><CheckCircle className={`text-[${PRIMARY_COLOR}] w-5 h-5`} /> Project-Based Outsourcing</li>
-                  </ul>
-                </div>
-                <div>
-                  <h3 className={`mt-8 text-xl font-semibold text-[${PRIMARY_COLOR}]`}>
-                    Roles Provided
-                  </h3>
-                  <p className="mt-4 text-gray-600 leading-relaxed">
-                    Developers (Java, Python, .NET), QA Engineers, DevOps, Cloud Engineers,
-                    UI/UX Designers, Data Analysts, and Technical Support.
-                  </p>
-                </div>
-              </div>
             </motion.div>
           </ServiceBlock>
 
           <hr className="border-gray-200" />
 
-          {/* 2. APPLICATION SUPPORT SECTION */}
-          <ServiceBlock reverse={true}>
+          {/* SERVICE 2 */}
+          <ServiceBlock reverse>
             <motion.div
-              className={`p-10 rounded-2xl bg-[${SECONDARY_BG}] shadow-xl hover:shadow-2xl transition-shadow w-full max-w-md text-center border-b-4 border-[${PRIMARY_COLOR}]`}
+              className="p-10 rounded-2xl shadow-xl hover:shadow-2xl transition-shadow w-full max-w-md text-center border-b-4"
+              style={{ backgroundColor: SECONDARY_BG, borderColor: PRIMARY_COLOR }}
               variants={iconCardVariants}
               whileHover="hover"
             >
-              <Headset className={`w-16 h-16 text-[${PRIMARY_COLOR}] mx-auto`} />
-              <h3 className={`mt-6 text-2xl font-bold text-[${PRIMARY_COLOR}]`}>
+              <Headset className="w-16 h-16 mx-auto" style={{ color: PRIMARY_COLOR }} />
+              <h3 className="mt-6 text-2xl font-bold" style={{ color: PRIMARY_COLOR }}>
                 Responsive 24/7 Support
               </h3>
               <p className="mt-4 text-gray-600">
-                Always-on monitoring, troubleshooting, and performance optimization to ensure
-                maximum application stability and minimal downtime.
+                Proactive monitoring, incident management & downtime prevention.
               </p>
-              <Link href="#contact" className={`mt-4 inline-block text-[${PRIMARY_COLOR}] font-semibold hover:underline`}>
-                Get Expert Support →
+              <Link href="#contact" className="mt-4 inline-block font-semibold hover:underline" style={{ color: PRIMARY_COLOR }}>
+                Get Support →
               </Link>
             </motion.div>
 
             <motion.div className="space-y-6" variants={itemVariants}>
-              <h2 className={`text-3xl sm:text-4xl font-bold text-[${PRIMARY_COLOR}]`}>
+              <h2 className="text-3xl sm:text-4xl font-bold" style={{ color: PRIMARY_COLOR }}>
                 Application Support Services
               </h2>
-              <p className="text-gray-600 leading-relaxed text-lg">
-                We provide **reliable, round-the-clock support** ensuring your applications remain stable,
-                optimized, and secure — boosting user experience and reducing downtime.
+              <p className="text-gray-600 text-lg">
+                We ensure your application performance is optimized round-the-clock.
               </p>
-
-              <h3 className={`mt-8 text-xl font-semibold text-[${PRIMARY_COLOR}]`}>
-                Comprehensive Support Coverage
-              </h3>
-              <ul className="mt-4 space-y-3 text-gray-600">
-                <li className="flex items-center gap-2"><CheckCircle className={`text-[${PRIMARY_COLOR}] w-5 h-5`} /> **L1, L2 & L3 Technical Support**</li>
-                <li className="flex items-center gap-2"><CheckCircle className={`text-[${PRIMARY_COLOR}] w-5 h-5`} /> 24/7 Monitoring & Incident Management</li>
-                <li className="flex items-center gap-2"><CheckCircle className={`text-[${PRIMARY_COLOR}] w-5 h-5`} /> Bug Fixing, Patch Deployment & Upgrades</li>
-                <li className="flex items-center gap-2"><CheckCircle className={`text-[${PRIMARY_COLOR}] w-5 h-5`} /> Performance Optimization & RCA</li>
-              </ul>
             </motion.div>
           </ServiceBlock>
 
           <hr className="border-gray-200" />
 
-          {/* 3. RECRUITMENT SECTION */}
+          {/* SERVICE 3 */}
           <ServiceBlock>
             <motion.div
-              className={`p-10 rounded-2xl bg-[${SECONDARY_BG}] shadow-xl hover:shadow-2xl transition-shadow w-full max-w-md text-center border-b-4 border-[${PRIMARY_COLOR}]`}
+              className="p-10 rounded-2xl shadow-xl hover:shadow-2xl transition-shadow w-full max-w-md text-center border-b-4"
+              style={{ backgroundColor: SECONDARY_BG, borderColor: PRIMARY_COLOR }}
               variants={iconCardVariants}
               whileHover="hover"
             >
-              <Briefcase className={`w-16 h-16 text-[${PRIMARY_COLOR}] mx-auto`} />
-              <h3 className={`mt-6 text-2xl font-bold text-[${PRIMARY_COLOR}]`}>
-                Result-Driven Recruitment
+              <Briefcase className="w-16 h-16 mx-auto" style={{ color: PRIMARY_COLOR }} />
+              <h3 className="mt-6 text-2xl font-bold" style={{ color: PRIMARY_COLOR }}>
+                Recruitment Solutions
               </h3>
               <p className="mt-4 text-gray-600">
-                High-quality, pre-screened candidates delivered quickly through a domain-expert hiring process.
+                Access to the best pre-screened candidates with fast hiring cycles.
               </p>
-              <Link href="#contact" className={`mt-4 inline-block text-[${PRIMARY_COLOR}] font-semibold hover:underline`}>
-                Find Your Talent →
+              <Link href="#contact" className="mt-4 inline-block font-semibold hover:underline" style={{ color: PRIMARY_COLOR }}>
+                Hire Talent →
               </Link>
             </motion.div>
 
             <motion.div className="space-y-6" variants={itemVariants}>
-              <h2 className={`text-3xl sm:text-4xl font-bold text-[${PRIMARY_COLOR}]`}>
-                Recruitment & Staffing Solutions
+              <h2 className="text-3xl sm:text-4xl font-bold" style={{ color: PRIMARY_COLOR }}>
+                Staffing & Hiring Solutions
               </h2>
-              <p className="text-gray-600 leading-relaxed text-lg">
-                We offer **end-to-end hiring solutions** — helping organizations build highly skilled,
-                reliable teams across **IT & non-IT domains** using structured technical screening.
+              <p className="text-gray-600 text-lg">
+                Boost efficiency with skilled IT and non-IT talent.
               </p>
-
-              <h3 className={`mt-8 text-xl font-semibold text-[${PRIMARY_COLOR}]`}>
-                Official Recruitment Partner
-              </h3>
-              <p className="mt-4 text-gray-600 leading-relaxed">
-                Proudly partnered with **Kudzu Pvt. Ltd., CAIT Pvt. Ltd.,** and other reputed organizations
-                for fast, reliable recruitment.
-              </p>
-
-              <h3 className={`mt-8 text-xl font-semibold text-[${PRIMARY_COLOR}]`}>
-                Our Hiring Expertise
-              </h3>
-              <ul className="mt-4 space-y-3 text-gray-600">
-                <li className="flex items-center gap-2"><CheckCircle className={`text-[${PRIMARY_COLOR}] w-5 h-5`} /> IT & Non-IT Permanent Staffing</li>
-                <li className="flex items-center gap-2"><CheckCircle className={`text-[${PRIMARY_COLOR}] w-5 h-5`} /> **Bulk Hiring & Campus Recruitment**</li>
-                <li className="flex items-center gap-2"><CheckCircle className={`text-[${PRIMARY_COLOR}] w-5 h-5`} /> Technical Screening & Onboarding Support</li>
-              </ul>
             </motion.div>
           </ServiceBlock>
 
           <hr className="border-gray-200" />
 
-          {/* 4. TRAINING & DEVELOPMENT SECTION */}
-          <ServiceBlock reverse={true}>
+          {/* SERVICE 4 */}
+          <ServiceBlock reverse>
             <motion.div
-              className={`p-10 rounded-2xl bg-[${SECONDARY_BG}] shadow-xl hover:shadow-2xl transition-shadow w-full max-w-md text-center border-b-4 border-[${PRIMARY_COLOR}]`}
+              className="p-10 rounded-2xl shadow-xl hover:shadow-2xl transition-shadow w-full max-w-md text-center border-b-4"
+              style={{ backgroundColor: SECONDARY_BG, borderColor: PRIMARY_COLOR }}
               variants={iconCardVariants}
               whileHover="hover"
             >
-              <GraduationCap className={`w-16 h-16 text-[${PRIMARY_COLOR}] mx-auto`} />
-              <h3 className={`mt-6 text-2xl font-bold text-[${PRIMARY_COLOR}]`}>
-                CODEIT Training Institute
+              <GraduationCap className="w-16 h-16 mx-auto" style={{ color: PRIMARY_COLOR }} />
+              <h3 className="mt-6 text-2xl font-bold" style={{ color: PRIMARY_COLOR }}>
+                Training & Development
               </h3>
               <p className="mt-4 text-gray-600">
-                Hands-on, job-oriented courses with **100% placement support** for a future-ready workforce.
+                Industry-led programs designed for 100% job-ready skills.
               </p>
-              <Link href="#contact" className={`mt-4 inline-block text-[${PRIMARY_COLOR}] font-semibold hover:underline`}>
+              <Link href="#contact" className="mt-4 inline-block font-semibold hover:underline" style={{ color: PRIMARY_COLOR }}>
                 View Courses →
               </Link>
             </motion.div>
 
             <motion.div className="space-y-6" variants={itemVariants}>
-              <h2 className={`text-3xl sm:text-4xl font-bold text-[${PRIMARY_COLOR}]`}>
-                Training & Skill Development
+              <h2 className="text-3xl sm:text-4xl font-bold" style={{ color: PRIMARY_COLOR }}>
+                Skill Development Training
               </h2>
-              <p className="text-gray-600 leading-relaxed text-lg">
-                Practical, industry-led training programs designed to develop skilled professionals
-                ready for corporate challenges.
+              <p className="text-gray-600 text-lg">
+                Full-stack development, testing, analytics & more.
               </p>
-
-              <h3 className={`mt-8 text-xl font-semibold text-[${PRIMARY_COLOR}]`}>
-                Key Training Domains
-              </h3>
-              <ul className="mt-4 space-y-3 text-gray-600 grid grid-cols-1 sm:grid-cols-2">
-                <li className="flex items-center gap-2"><CheckCircle className={`text-[${PRIMARY_COLOR}] w-5 h-5`} /> Full Stack Development</li>
-                <li className="flex items-center gap-2"><CheckCircle className={`text-[${PRIMARY_COLOR}] w-5 h-5`} /> Software Testing (Manual/Automation)</li>
-                <li className="flex items-center gap-2"><CheckCircle className={`text-[${PRIMARY_COLOR}] w-5 h-5`} /> Data Science & Analytics</li>
-                <li className="flex items-center gap-2"><CheckCircle className={`text-[${PRIMARY_COLOR}] w-5 h-5`} /> Business Analyst & Programming</li>
-              </ul>
             </motion.div>
           </ServiceBlock>
 
@@ -286,10 +227,8 @@ export default function ServicesPage() {
 
       {/* CTA */}
       <motion.section
-        className={`py-20 bg-[${PRIMARY_COLOR}] text-white`}
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        viewport={{ once: true, amount: 0.5 }}
+        className="py-20 text-white"
+        style={{ backgroundColor: PRIMARY_COLOR }}
         id="contact"
       >
         <div className="max-w-7xl mx-auto px-6 text-center">
@@ -297,15 +236,15 @@ export default function ServicesPage() {
             Let’s Build Something Great Together
           </h2>
           <p className="mt-4 text-lg max-w-2xl mx-auto opacity-90">
-            Whether you need outsourcing support, application management,
-            or skilled talent, we’re here to help your business grow.
+            Contact us for IT outsourcing, development & recruitment services.
           </p>
-
           <Link
             href="/contact"
-            className={`mt-8 inline-block bg-white text-[${PRIMARY_COLOR}] px-10 py-4 rounded-full font-semibold text-lg shadow-xl hover:shadow-2xl transition-all hover:scale-[1.02]`}
+            className="mt-8 inline-block bg-white px-10 py-4 rounded-full font-semibold text-lg shadow-xl 
+            hover:shadow-2xl transition hover:scale-105"
+            style={{ color: PRIMARY_COLOR }}
           >
-            Contact Our Experts Today
+            Contact Our Experts
           </Link>
         </div>
       </motion.section>
