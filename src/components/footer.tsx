@@ -7,7 +7,7 @@ const Footer = () => {
       <div className="container mx-auto max-w-7xl px-6 py-20">
         {/* Section 1: Newsletter Signup */}
         <div className="mb-12">
-          <h2 className="mb-6 text-3xl font-bold text-gray-800 md:text-4xl lg:text-4xl">
+          <h2 className="mb-6 text-3xl font-bold text-[#0F4F3F] md:text-4xl lg:text-4xl">
             Get tech and hiring updates from Code IT!
           </h2>
           <form className="flex flex-col space-y-4 sm:flex-row sm:space-y-0 sm:space-x-4">
