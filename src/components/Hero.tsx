@@ -35,12 +35,10 @@ export default function ScrollShowcase() {
     if (el) layersRef.current[i] = el;
   };
 
-  // GSAP ScrollTrigger setup
+  /** 🔥 GSAP + ScrollTrigger Setup */
   useEffect(() => {
     const root = rootRef.current;
     if (!root) return;
-
-    const triggers: ScrollTrigger[] = [];
 
     const mm = gsap.matchMedia();
     const triggers: ScrollTrigger[] = [];
@@ -49,6 +47,7 @@ export default function ScrollShowcase() {
     mm.add("(min-width: 768px)", () => {
       sectionsRef.current.forEach((el, i) => {
         if (!el) return;
+
         const imgAnim = gsap.fromTo(
           el.querySelector('.img-wrap'),
           { y: 40, autoAlpha: 0 },
@@ -94,6 +93,7 @@ export default function ScrollShowcase() {
     mm.add("(max-width: 767px)", () => {
       sectionsRef.current.forEach((el, i) => {
         if (!el) return;
+
         const mobileAnim = gsap.fromTo(
           el.querySelector('.img-wrap'),
           { y: 12, autoAlpha: 0 },
@@ -125,7 +125,7 @@ export default function ScrollShowcase() {
     };
   }, []);
 
-  // text swap animation on left side
+  /** ✨ Left Text Swap Animation */
   useEffect(() => {
     const root = rootRef.current;
     if (!root) return;
@@ -139,7 +139,7 @@ export default function ScrollShowcase() {
       .to([a, b], { y: 0, autoAlpha: 1, duration: 0.5, ease: 'power3.out' });
 
     return () => {
-      tl.kill(); // 👈 correct cleanup
+      tl.kill();
     };
   }, [activeIndex]);
 
@@ -148,14 +148,18 @@ export default function ScrollShowcase() {
       <div className="container mx-auto max-w-7xl px-6 py-20">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
           
-          {/* LEFT */}
+          {/* LEFT CONTENT */}
           <div className="left-panel sticky top-32 self-start min-h-[300px] md:w-[55%]">
             <h2 className="text-5xl md:text-6xl font-extrabold text-[#133B31] mb-8">CODE IT</h2>
-            <p className="left-a text-3xl font-semibold text-slate-800 mb-4">{SCENES[activeIndex].title}</p>
-            <p className="left-b text-2xl text-slate-600 leading-relaxed">{SCENES[activeIndex].lineA}</p>
+            <p className="left-a text-3xl font-semibold text-slate-800 mb-4">
+              {SCENES[activeIndex].title}
+            </p>
+            <p className="left-b text-2xl text-slate-600 leading-relaxed">
+              {SCENES[activeIndex].lineA}
+            </p>
           </div>
 
-          {/* RIGHT */}
+          {/* RIGHT IMAGES */}
           <div className="right-panel space-y-12">
             {SCENES.map((s, i) => (
               <section
@@ -164,8 +168,7 @@ export default function ScrollShowcase() {
                 className="scene min-h-[70vh] md:min-h-[100vh] flex items-center justify-center"
               >
                 <div className="relative w-full max-w-[720px]">
-                  <div
-                    ref={(el) => setLayerRef(el, i)}
+                  <div ref={(el) => setLayerRef(el, i)}
                     className="layer absolute inset-0 rounded-2xl"
                     style={{ background: 'linear-gradient(135deg, #00b89422, #00000011)' }}
                   />
@@ -176,7 +179,7 @@ export default function ScrollShowcase() {
               </section>
             ))}
           </div>
-
+          
         </div>
       </div>
     </section>
