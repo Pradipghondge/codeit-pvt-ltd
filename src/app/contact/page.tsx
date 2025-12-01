@@ -2,20 +2,40 @@
 
 import { useState, FormEvent } from "react";
 
+// Define interfaces for better type-checking
+interface FormData {
+  name: string;
+  email: string;
+  phone: string;
+  message: string;
+}
+
+interface FormErrors {
+  name?: string;
+  email?: string;
+}
+
+interface SubmissionStatus {
+  submitting: boolean;
+  success: boolean | null;
+  message: string;
+}
+
 export default function ContactPage() {
-  const [formData, setFormData] = useState({
+  const initialFormData: FormData = {
     name: "",
     email: "",
     phone: "",
     message: "",
-  });
+  };
 
-  const [errors, setErrors] = useState({
-    name: "",
-    email: "",
+  const [formData, setFormData] = useState<FormData>(initialFormData);
+  const [errors, setErrors] = useState<FormErrors>({});
+  const [status, setStatus] = useState<SubmissionStatus>({
+    submitting: false,
+    success: null,
+    message: "",
   });
-
-  const [isSubmitted, setIsSubmitted] = useState(false);
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -24,37 +44,62 @@ export default function ContactPage() {
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
-  const validateForm = () => {
-    let newErrors = { name: "", email: "" };
-    let isValid = true;
-
+  const validateForm = (): FormErrors => {
+    const newErrors: FormErrors = {};
     if (!formData.name.trim()) {
       newErrors.name = "Name is required.";
-      isValid = false;
     }
-
     if (!formData.email.trim()) {
       newErrors.email = "Email is required.";
-      isValid = false;
     } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
       newErrors.email = "Email is invalid.";
-      isValid = false;
     }
-
-    setErrors(newErrors);
-    return isValid;
+    return newErrors;
   };
 
-  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setIsSubmitted(false);
+    const validationErrors = validateForm();
+    setErrors(validationErrors);
 
-    if (validateForm()) {
-      console.log("Form Submitted:", formData);
-      // Here you would typically send the form data to a server
-      setIsSubmitted(true);
-      // Optionally reset form
-      // setFormData({ name: "", email: "", phone: "", message: "" });
+    if (Object.keys(validationErrors).length > 0) {
+      return;
+    }
+
+    setStatus({ submitting: true, success: null, message: "Sending..." });
+
+    try {
+      const response = await fetch("/api/contactus", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+
+      const result = await response.json();
+
+      if (response.ok && result.success) {
+        setStatus({
+          submitting: false,
+          success: true,
+          message: "Thank you! Your message has been sent successfully.",
+        });
+        setFormData(initialFormData); // Reset form on success
+      } else {
+        setStatus({
+          submitting: false,
+          success: false,
+          message: result.message || "Failed to send message. Please try again.",
+        });
+      }
+    } catch (error) {
+      console.error("Submission error:", error);
+      setStatus({
+        submitting: false,
+        success: false,
+        message: "An error occurred. Please try again later.",
+      });
     }
   };
 
@@ -62,7 +107,9 @@ export default function ContactPage() {
     <div className="bg-[#F7F8FA] min-h-screen flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
       <div className="w-full max-w-lg p-8 space-y-8 bg-white rounded-2xl shadow-lg">
         <div className="text-center">
-          <h1 className="text-4xl font-extrabold text-[#0F4F3F]">How Can We Help?</h1>
+          <h1 className="text-4xl font-extrabold text-[#0F4F3F]">
+            How Can We Help?
+          </h1>
           <p className="mt-4 text-lg text-gray-500">
             We're here to help with any questions you may have. Reach out and
             let&apos;s build something great together.
@@ -75,12 +122,15 @@ export default function ContactPage() {
               type="text"
               name="name"
               id="name"
+              required
               value={formData.name}
               onChange={handleChange}
               placeholder="Name"
               className="w-full px-4 py-3 bg-[#F7F8FA] border-2 border-transparent rounded-lg text-[#0F4F3F] placeholder:text-gray-500 focus:outline-none focus:ring-2 focus:ring-[#0F4F3F] focus:border-transparent transition"
             />
-            {errors.name && <p className="mt-1 text-sm text-red-600">{errors.name}</p>}
+            {errors.name && (
+              <p className="mt-1 text-sm text-red-600">{errors.name}</p>
+            )}
           </div>
 
           <div>
@@ -88,12 +138,15 @@ export default function ContactPage() {
               type="email"
               name="email"
               id="email"
+              required
               value={formData.email}
               onChange={handleChange}
               placeholder="Email"
               className="w-full px-4 py-3 bg-[#F7F8FA] border-2 border-transparent rounded-lg text-[#0F4F3F] placeholder:text-gray-500 focus:outline-none focus:ring-2 focus:ring-[#0F4F3F] focus:border-transparent transition"
             />
-            {errors.email && <p className="mt-1 text-sm text-red-600">{errors.email}</p>}
+            {errors.email && (
+              <p className="mt-1 text-sm text-red-600">{errors.email}</p>
+            )}
           </div>
 
           <div>
@@ -123,16 +176,23 @@ export default function ContactPage() {
           <div>
             <button
               type="submit"
-              className="w-full px-4 py-3 font-semibold text-white bg-[#0F4F3F] rounded-lg hover:bg-opacity-90 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#0F4F3F] transition-all duration-300 ease-in-out active:scale-[0.98]"
+              disabled={status.submitting}
+              className="w-full px-4 py-3 font-semibold text-white bg-[#0F4F3F] rounded-lg hover:bg-opacity-90 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#0F4F3F] transition-all duration-300 ease-in-out active:scale-[0.98] disabled:bg-opacity-70 disabled:cursor-not-allowed"
             >
-              Submit
+              {status.submitting ? "Sending..." : "Submit"}
             </button>
           </div>
         </form>
 
-        {isSubmitted && (
-          <div className="text-center p-3 bg-green-100 text-green-800 rounded-lg">
-            Thank you! Your message has been sent successfully.
+        {status.message && !status.submitting && (
+          <div
+            className={`text-center p-3 rounded-lg ${
+              status.success
+                ? "bg-green-100 text-green-800"
+                : "bg-red-100 text-red-800"
+            }`}
+          >
+            {status.message}
           </div>
         )}
       </div>
