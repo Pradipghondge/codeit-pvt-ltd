@@ -7,7 +7,7 @@ const blogPosts = [
     image: "/images/blog/blog1.jpg",
     tag: "Career",
     date: "April 01, 2025",
-    title: "Top IT Skills in 2024: What Employers Are Looking For",
+    title: "Top IT Skills in 2025: What Employers Are Looking For",
   },
   {
     image: "/images/blog/blog2.jpg",

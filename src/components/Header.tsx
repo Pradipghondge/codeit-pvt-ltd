@@ -56,7 +56,7 @@ export default function Header() {
           
           {/* LOGO */}
           <div className="logo flex items-center">
-            <img src="/images/logo.png" alt="IMG" className="h-8 w-auto" />
+            <img src="/images/logo.png" alt="IMG" className="h-9 w-auto" />
             <Link 
               href="/" 
               className={`text-2xl font-bold transition-colors duration-300 ${textColorClass} ${hoverColorClass}`}
