@@ -96,70 +96,6 @@ export default function ServicesPage() {
       <section className="py-20 sm:py-24">
         <div className="max-w-7xl mx-auto px-6 space-y-24 sm:space-y-32">
 
-          {/* SERVICE 1 */}
-          <ServiceBlock>
-            <motion.div
-              className="p-10 rounded-2xl shadow-xl hover:shadow-2xl transition-shadow w-full max-w-md text-center border-b-4"
-              style={{ backgroundColor: SECONDARY_BG, borderColor: PRIMARY_COLOR }}
-              variants={iconCardVariants}
-              whileHover="hover"
-            >
-              <Users className="w-16 h-16 mx-auto" style={{ color: PRIMARY_COLOR }} />
-              <h3 className="mt-6 text-2xl font-bold" style={{ color: PRIMARY_COLOR }}>
-                Scalable IT Outsourcing
-              </h3>
-              <p className="mt-4 text-gray-600">
-                Deploy skilled resources quickly and efficiently tailored to your business needs.
-              </p>
-              <Link href="#contact" className="mt-4 inline-block font-semibold hover:underline" style={{ color: PRIMARY_COLOR }}>
-                Start Outsourcing →
-              </Link>
-            </motion.div>
-
-            <motion.div className="space-y-6" variants={itemVariants}>
-              <h2 className="text-3xl sm:text-4xl font-bold" style={{ color: PRIMARY_COLOR }}>
-                IT Outsourcing Solutions
-              </h2>
-              <p className="text-gray-600 text-lg">
-                Skilled and dependable professionals supporting cloud, DevOps, testing & more.
-              </p>
-            </motion.div>
-          </ServiceBlock>
-
-          <hr className="border-gray-200" />
-
-          {/* SERVICE 2 */}
-          <ServiceBlock reverse>
-            <motion.div
-              className="p-10 rounded-2xl shadow-xl hover:shadow-2xl transition-shadow w-full max-w-md text-center border-b-4"
-              style={{ backgroundColor: SECONDARY_BG, borderColor: PRIMARY_COLOR }}
-              variants={iconCardVariants}
-              whileHover="hover"
-            >
-              <Headset className="w-16 h-16 mx-auto" style={{ color: PRIMARY_COLOR }} />
-              <h3 className="mt-6 text-2xl font-bold" style={{ color: PRIMARY_COLOR }}>
-                Responsive 24/7 Support
-              </h3>
-              <p className="mt-4 text-gray-600">
-                Proactive monitoring, incident management & downtime prevention.
-              </p>
-              <Link href="#contact" className="mt-4 inline-block font-semibold hover:underline" style={{ color: PRIMARY_COLOR }}>
-                Get Support →
-              </Link>
-            </motion.div>
-
-            <motion.div className="space-y-6" variants={itemVariants}>
-              <h2 className="text-3xl sm:text-4xl font-bold" style={{ color: PRIMARY_COLOR }}>
-                Application Support Services
-              </h2>
-              <p className="text-gray-600 text-lg">
-                We ensure your application performance is optimized round-the-clock.
-              </p>
-            </motion.div>
-          </ServiceBlock>
-
-          <hr className="border-gray-200" />
-
           {/* SERVICE 3 */}
           <ServiceBlock>
             <motion.div
@@ -175,8 +111,8 @@ export default function ServicesPage() {
               <p className="mt-4 text-gray-600">
                 Access to the best pre-screened candidates with fast hiring cycles.
               </p>
-              <Link href="#contact" className="mt-4 inline-block font-semibold hover:underline" style={{ color: PRIMARY_COLOR }}>
-                Hire Talent →
+              <Link href="/services/recruitment" className="mt-4 inline-block font-semibold hover:underline" style={{ color: PRIMARY_COLOR }}>
+                Learn More →
               </Link>
             </motion.div>
 
@@ -207,8 +143,8 @@ export default function ServicesPage() {
               <p className="mt-4 text-gray-600">
                 Industry-led programs designed for 100% job-ready skills.
               </p>
-              <Link href="#contact" className="mt-4 inline-block font-semibold hover:underline" style={{ color: PRIMARY_COLOR }}>
-                View Courses →
+              <Link href="/services/training" className="mt-4 inline-block font-semibold hover:underline" style={{ color: PRIMARY_COLOR }}>
+                Learn More →
               </Link>
             </motion.div>
 
@@ -221,6 +157,39 @@ export default function ServicesPage() {
               </p>
             </motion.div>
           </ServiceBlock>
+
+          <hr className="border-gray-200" />
+
+          {/* SERVICE 2 */}
+          <ServiceBlock>
+            <motion.div
+              className="p-10 rounded-2xl shadow-xl hover:shadow-2xl transition-shadow w-full max-w-md text-center border-b-4"
+              style={{ backgroundColor: SECONDARY_BG, borderColor: PRIMARY_COLOR }}
+              variants={iconCardVariants}
+              whileHover="hover"
+            >
+              <Headset className="w-16 h-16 mx-auto" style={{ color: PRIMARY_COLOR }} />
+              <h3 className="mt-6 text-2xl font-bold" style={{ color: PRIMARY_COLOR }}>
+                Application Support
+              </h3>
+              <p className="mt-4 text-gray-600">
+                Proactive monitoring, incident management & downtime prevention.
+              </p>
+              <Link href="/services/support" className="mt-4 inline-block font-semibold hover:underline" style={{ color: PRIMARY_COLOR }}>
+                Learn More →
+              </Link>
+            </motion.div>
+
+            <motion.div className="space-y-6" variants={itemVariants}>
+              <h2 className="text-3xl sm:text-4xl font-bold" style={{ color: PRIMARY_COLOR }}>
+                Application Support Services
+              </h2>
+              <p className="text-gray-600 text-lg">
+                We ensure your application performance is optimized round-the-clock.
+              </p>
+            </motion.div>
+          </ServiceBlock>
+
 
         </div>
       </section>
