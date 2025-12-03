@@ -137,7 +137,7 @@ export default function HireFromCodeITPage() {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
       >
-        <div
+        {/* <div
           className="absolute inset-0 bg-grid-slate-100 [mask-image:linear-gradient(to_bottom,white,transparent)]"
           style={{
             // @ts-ignore
@@ -146,7 +146,7 @@ export default function HireFromCodeITPage() {
             backgroundSize: "var(--grid-size) var(--grid-size)",
             backgroundImage: "linear-gradient(to right, var(--grid-color) 1px, transparent 1px), linear-gradient(to bottom, var(--grid-color) 1px, transparent 1px)",
           }}
-        ></div>
+        ></div> */}
         <div className="max-w-7xl mx-auto px-6">
           <Link
             href="/services"
